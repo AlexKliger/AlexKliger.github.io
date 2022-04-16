@@ -4,92 +4,127 @@
   <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Alex Kliger</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body class="l-centered">
-    <header>
-        <nav class="nav-primary">
-          <ul>
-            <li>Home</li>
-            <li>Porfolio</li>
-            <li>About</li>
-            <li>Contact</li>
-          </ul>
-        </nav>
+  <body>
+    <header style="position: fixed;" class="bg--primary box-shadow">
+      <div class="l-centered">
+          <nav>
+            <ul>
+              <li><a class="font-color--tertiary" href="#landing">Home</a></li>
+              <li><a class="font-color--tertiary" href="#portfolio">Porfolio</a></li>
+              <li><a class="font-color--tertiary" href="#about">About</a></li>
+              <li><a class="font-color--tertiary" href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
     </header>
 
-    <main>
-      <!-- Home -->
-      <section id="home">
+    <main class="bg--tertiary">
+      <span class="socials flex-column">
+        <a href="#" class="font-color--secondary font-size--icon"><i class="fa fa-github-square"></i></a>
+        <a href="#" class="font-color--secondary font-size--icon"><i class="fa fa-linkedin-square"></i></a>
+        <a href="#" class="font-color--secondary font-size--icon"><i class="fa fa-twitter-square"></i></a>
+      </span>
+      
+      <!-- Landing -->
+      <section id="landing" class="bg--primary">
         <!-- Hero -->
-        <div class="hero">
-          <h1>
+        <div class="hero l-centered">
+          <h1 class="font-color--tertiary">
             Hi, I'm Alex.
           </h1>
           <p>I like to code for fun and profit. Freelance web developer based in Miami.</p>
+          <button class="hero__btn bg--tertiary font-color--primary border-radius">Learn more</button>
+          <button class="hero__btn bg--tertiary font-color--primary border-radius">Get in touch</button>
+        </div>
+
+        <!-- <div style="clip-path: polygon(0 20vh, 100% 0, 100% 100%, 0 100%); position: absolute; height: 200px; bottom: 0; left: 0; right: 0;" class="bg--tertiary">
+          <a class="landing__scroll-indicator font-color--primary" href="#portfolio"><i style="margin-top: 0.5em;" class="fa fa-chevron-down"></i></a>
+        </div> -->
+      </section>
+      
+
+      <!-- Portfolio -->
+      <section id="portfolio" class="bg--tertiary">
+        <div class="l-centered">`
+          <h2 class="font-color--primary">Portfolio</h2>
+          <div style="gap: 2em;" class="flex-row">
+            <!-- Project 1 -->
+            <div class="project">
+              <img src="https://picsum.photos/id/1/700" decoding="async">
+              <div class="project__content border-top box-shadow">
+                <h3>Impsum Lorem</h3>
+                <p style="margin-bottom: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
+                <a style="margin-right: 1rem;" class="font-size--icon"><i class="fa fa-github-square"></i></a>
+                <a class="project__link font-size--large"><i class="fa fa-external-link"></i></a>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project">
+              <img src="https://picsum.photos/id/2/700" decoding="async">
+              <div class="project__content border-top box-shadow">
+                <h3>Impsum Lorem</h3>
+                <p style="margin-bottom: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
+                <a style="margin-right: 1rem;" class="font-size--icon"><i class="fa fa-github-square"></i></a>
+                <a class="project__link font-size--large"><i class="fa fa-external-link"></i></a>
+              </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project">
+              <img src="https://picsum.photos/id/3/700" decode="async">
+              <div class="project__content border-top box-shadow">
+                <h3>Impsum Lorem</h3>
+                <p style="margin-bottom: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
+                <a style="margin-right: 1rem;" class="font-size--icon"><i class="fa fa-github-square"></i></a>
+                <a class="project__link font-size--large"><i class="fa fa-external-link"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
-      <!-- Portfolio -->
-      <section style="position: relative;" id="portfolio">
-        <h2 class="font-color-tertiary">Portfolio</h2>
-        <div style="gap: 2em;" class="flex-row">
-          <!-- Project 1 -->
-          <div class="project">
-            <img src="https://picsum.photos/700">
-            <div class="content border-top box-shadow">
-              <h3>Impsum Lorem</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
-            </div>
-          </div>
-          <!-- Project 2 -->
-          <div class="project">
-            <img src="https://picsum.photos/700">
-            <div class="content border-top box-shadow">
-              <h3>Impsum Lorem</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
-            </div>
-          </div>
-          <!-- Project 3 -->
-          <div class="project">
-            <img src="https://picsum.photos/700">
-            <div class="content border-top box-shadow">
-              <h3>Impsum Lorem</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- <div style="clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%); width: 100%; height: 150px" class="bg--tertiary">
+      </div> -->
 
       <!-- About -->
-      <section id="about">
-        <h2 class="font-color-tertiary">About</h2>
-        <div class="flex-row">
-          <img style="border-radius: 50%; max-width: 30%;" src="https://picsum.photos/700">
-          <p style="padding: 2em;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusamus ipsum sequi nostrum beatae iure eveniet. Tenetur optio atque et sunt. Minus repudiandae ut ullam officia eaque veniam cumque. Tempora sint eaque deleniti atque! Dolorum perspiciatis voluptas vitae aliquam quia libero quidem voluptates, iusto beatae expedita corporis eos dignissimos eaque!</p>
+      <section id="about" class="bg--primary">
+        <div class="l-centered">
+          <h2 class="font-color--tertiary">About</h2>
+          <div class="flex-row">
+            <img style="border-radius: 50%; max-width: 30%;" src="./img/me.jpg" alt="me" decode="async">
+            <p style="padding: 2em;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusamus ipsum sequi nostrum beatae iure eveniet. Tenetur optio atque et sunt. Minus repudiandae ut ullam officia eaque veniam cumque. Tempora sint eaque deleniti atque! Dolorum perspiciatis voluptas vitae aliquam quia libero quidem voluptates, iusto beatae expedita corporis eos dignissimos eaque!</p>
+          </div>
         </div>
       </section>
 
       <!-- Contact -->
       <section id="contact">
-        <h2 class="font-color-tertiary">Contact</h2>
-        <form style="width: 50%; position: relative; left: 50%; transform: translateX(-50%);" class="border-radius border-top box-shadow">
-          <label for="name">Name</label>
-          <input type="text" name="name">
-          <label for="email">Email</label>
-          <input type="text" name="email">
-          <label for="subject">Subject</label>
-          <input type="text" name="subject">
-
-          <label for="message">Message</label>
-          <textarea name="message"></textarea>
-          <input type="submit" value="Submit">
-        </form>
+        <div class="l-centered">
+          <h2 class="font-color--primary">Contact</h2>
+          <form style="width: 50%; position: relative; left: 50%; transform: translateX(-50%);" class="border-radius border-top box-shadow bg--primary">
+            <label for="name">Name</label>
+            <input type="text" name="name">
+            <label for="email">Email</label>
+            <input type="text" name="email">
+            <label for="subject">Subject</label>
+            <input type="text" name="subject">
+  
+            <label for="message">Message</label>
+            <textarea name="message"></textarea>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
       </section>
 
     </main>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/scrollToAnchor.js" type="text/javascript"></script>
 
   </body>
 </html>
