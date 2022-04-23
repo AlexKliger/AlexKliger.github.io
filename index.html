@@ -38,48 +38,44 @@
           <h1 class="font-color--tertiary">
             Hi, I'm Alex.
           </h1>
-          <p>I like to code for fun and profit. Freelance web developer based in Miami.</p>
+          <p class="font-size--large">I like to code for fun and profit. Freelance web developer based in Miami.</p>
           <button class="hero__btn bg--tertiary font-color--primary border-radius">Learn more</button>
           <button class="hero__btn bg--tertiary font-color--primary border-radius">Get in touch</button>
         </div>
-
-        <!-- <div style="clip-path: polygon(0 20vh, 100% 0, 100% 100%, 0 100%); position: absolute; height: 200px; bottom: 0; left: 0; right: 0;" class="bg--tertiary">
-          <a class="landing__scroll-indicator font-color--primary" href="#portfolio"><i style="margin-top: 0.5em;" class="fa fa-chevron-down"></i></a>
-        </div> -->
       </section>
       
 
       <!-- Portfolio -->
       <section id="portfolio" class="bg--tertiary">
-        <div class="l-centered">`
+        <div class="l-centered">
           <h2 class="font-color--primary">Portfolio</h2>
-          <div style="gap: 2em;" class="flex-row">
+          <div style="gap: 2em;" class="flex-column">
             <!-- Project 1 -->
             <div class="project">
-              <img src="https://picsum.photos/id/1/700" decoding="async">
-              <div class="project__content border-top box-shadow">
-                <h3>Impsum Lorem</h3>
-                <p style="margin-bottom: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
+              <img class="project__img" src="./img/sameenconsulting.png" alt="Sameen Consulting" decoding="async">
+              <div class="project__content border-top border-radius box-shadow">
+                <h3>Sameen Consulting</h3>
+                <p style="margin-bottom: 1em;">Sameen Consulting is a technology integration and program management company specializing in mergers and acquisitions, suppy chain logistics, and enterprise governance.</p>
                 <a style="margin-right: 1rem;" class="font-size--icon"><i class="fa fa-github-square"></i></a>
                 <a class="project__link font-size--large"><i class="fa fa-external-link"></i></a>
               </div>
             </div>
             <!-- Project 2 -->
-            <div class="project">
-              <img src="https://picsum.photos/id/2/700" decoding="async">
-              <div class="project__content border-top box-shadow">
-                <h3>Impsum Lorem</h3>
-                <p style="margin-bottom: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
+            <div class="project project--align-right">
+              <img class="project__img" src="./img/taughtbyalex.png" decoding="async">
+              <div class="project__content border-top border-radius box-shadow">
+                <h3>Taught by Alex</h3>
+                <p style="margin-bottom: 1em;">Taught by Alex is a private tutoring company that provides high-quality distance learning that specializes in math and standardized exams.</p>
                 <a style="margin-right: 1rem;" class="font-size--icon"><i class="fa fa-github-square"></i></a>
                 <a class="project__link font-size--large"><i class="fa fa-external-link"></i></a>
               </div>
             </div>
             <!-- Project 3 -->
             <div class="project">
-              <img src="https://picsum.photos/id/3/700" decode="async">
-              <div class="project__content border-top box-shadow">
-                <h3>Impsum Lorem</h3>
-                <p style="margin-bottom: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui at officia ipsa laboriosam officiis impedit repellendus sed esse quidem, dolore magni nemo recusandae cupiditate rerum iste architecto! Praesentium, ducimus deserunt.</p>
+              <img class="project__img" src="./img/sameenconsulting.png" decode="async">
+              <div class="project__content border-top border-radius box-shadow">
+                <h3>Crypto Tracker</h3>
+                <p style="margin-bottom: 1em;">Crypto Tracker is a lightweight React application that's highly customizable and allows the use to quickly glance at the information that's most relavant to them.</p>
                 <a style="margin-right: 1rem;" class="font-size--icon"><i class="fa fa-github-square"></i></a>
                 <a class="project__link font-size--large"><i class="fa fa-external-link"></i></a>
               </div>
@@ -87,17 +83,14 @@
           </div>
         </div>
       </section>
-      
-      <!-- <div style="clip-path: polygon(0 0, 100% 0, 100% 0%, 0 100%); width: 100%; height: 150px" class="bg--tertiary">
-      </div> -->
 
       <!-- About -->
       <section id="about" class="bg--primary">
         <div class="l-centered">
           <h2 class="font-color--tertiary">About</h2>
-          <div class="flex-row">
-            <img style="border-radius: 50%; max-width: 30%;" src="./img/me.jpg" alt="me" decode="async">
-            <p style="padding: 2em;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusamus ipsum sequi nostrum beatae iure eveniet. Tenetur optio atque et sunt. Minus repudiandae ut ullam officia eaque veniam cumque. Tempora sint eaque deleniti atque! Dolorum perspiciatis voluptas vitae aliquam quia libero quidem voluptates, iusto beatae expedita corporis eos dignissimos eaque!</p>
+          <div class="flex-row" style="gap: 10em;">
+            <img class="about__img" src="./img/me.jpg" alt="me" decode="async">
+            <p class="about__text">I'm a (mostly) self-taught programmer. I love to constantly learn new things and always expanding my skillset. When I'm not in front of the computer, I enjoy taking hikes in nature with my dog Charlie, practicing foreign languages, and lifting weights.</p>
           </div>
         </div>
       </section>

@@ -44,28 +44,6 @@ p {
 }
 
 /* Layout */
-#landing {
-	height: 100vh;
-	padding-top: 15rem;
-	clip-path: polygon(0 100%, 0 0, 100% 0, 100% 80%)
-}
-
-#portfolio {
-	padding-top: 8em;
-	position: relative;
-}
-
-#about {
-	padding-top: 15em;
-	padding-bottom: 10em;
-	clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%)
-}
-
-#contact {
-	padding-top: 8em;
-	padding-bottom: 8em;
-}
-
 header {
 	position: absolute;
 	left: 0;
@@ -93,6 +71,40 @@ header {
 }
 
 /* Modules */
+#landing {
+	height: 100vh;
+	padding-top: 15rem;
+	clip-path: polygon(0 100%, 0 0, 100% 0, 100% 80%)
+}
+
+#portfolio {
+	padding-top: 9em;
+	padding-bottom: 10em;
+	position: relative;
+}
+
+#about {
+	padding-top: 9em;
+	padding-bottom: 10em;
+	clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%)
+}
+
+	.about__img {
+		border-radius: 50%;
+		max-width: 30%;
+	}
+
+	.about__text {
+		text-align: justify;
+		align-self: center;
+	}
+
+#contact {
+	padding-top: 8em;
+	padding-bottom: 8em;
+}
+
+
 .hero__btn {
 	padding: 0.5em 1em;
 	font-size: var(--font-size-medium);
@@ -136,25 +148,30 @@ nav {
 	}
 
 	nav li:not(:last-child) {
-		margin-right: 1em;
+		margin-right: 2.5em;
 	}
 
 .project {
 	flex: 1;
+	position: relative;
 }
+	.project--align-right {
+		display: flex;
+		justify-content: flex-end;
+	}
 
-	.project img {
-		width: 100%;
+	.project__img {
+		width: 40%;
 	}
 
 	.project__content {
 		background-color: var(--color-primary);
-		border-radius: 2px;
+		position: absolute;
+		top: 50%;
 		left: 50%;
-		padding: 1em 1em;
-		position: relative;
 		transform: translate(-50%, -50%);
-		width: 80%;
+		width: 50%;
+		padding: 1em 1em;
 	}
 
 .socials {
