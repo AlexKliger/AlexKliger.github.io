@@ -1,4 +1,4 @@
-$('a[href*="#"]') // Selects all links with hashes.
+$("a[href*='#']") // Selects all links with hashes.
     .not('[href="#"]') // Removes links that don't actually link to anything.
     .click(function(event) {
         // Find element to scroll to.
