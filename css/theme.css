@@ -1,0 +1,39 @@
+.bg--primary {
+	background-color: var(--color-primary);
+}
+
+.bg--tertiary {
+	background-color: var(--color-tertiary);
+}
+
+.border-radius {
+	border-radius: 5px;
+}
+
+.border-top {
+	border-top: 5px solid var(--color-tertiary);
+}
+
+.box-shadow {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3),0 2px 10px 0 rgba(0,0,0,0.2);
+}
+
+.font-color--primary {
+	color: var(--color-primary);
+}
+
+.font-color--secondary {
+	color: var(--color-secondary);
+}
+
+.font-color--tertiary {
+	color: var(--color-tertiary);
+}
+
+.font-size--large {
+	font-size: var(--font-size-large);
+}
+
+.font-size--icon {
+	font-size: var(--font-size-icon);
+}
