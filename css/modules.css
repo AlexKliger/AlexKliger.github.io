@@ -5,6 +5,36 @@ header {
 	z-index: 100;
 }
 
+nav {
+	margin: 1em 2em;
+    text-align: right;
+    font-size: 1.5rem;
+	font-weight: 600;
+	z-index: 1;
+	transition: 0.5s ease-in;
+}
+
+	.nav__link {
+		display: inline-block;
+		margin-right: 2.5em;
+	}
+
+.opaque-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: hsla(0, 0%, 0%, 0.5)
+}
+
+.expand-icon {
+    display: none;
+	float: right;
+	margin: 1rem;
+}
+
 .main-section {
 	margin-bottom: 3em;
 }
@@ -81,21 +111,6 @@ input[type=submit] {
 	font-size: var(--font-size-small)
 }
 
-nav {
-	margin: 1em 2em;
-    text-align: right;
-    font-size: 1.5rem;
-	font-weight: 600;
-}
-
-	nav li {
-		display: inline-block;
-	}
-
-	nav li:not(:last-child) {
-		margin-right: 2.5em;
-	}
-
 .project {
 	flex: 1;
 	position: relative;
@@ -124,4 +139,31 @@ nav {
 	bottom: 2em;
 	left: 1em;
 	z-index: 1000;
+}
+
+@media only screen and (max-width: 1000px) {
+	nav {
+		position: fixed;
+		right: 0;
+		height: 100vh;
+		margin: 0;
+		padding: 2rem 2rem;
+	}
+
+	.nav__link {
+		display: block;
+		margin-bottom: 2rem;
+	}
+
+    .expand-icon {
+		display: block;
+    }
+
+	header.hidden-nav nav {
+		transform: translateX(100%)
+	}
+
+	header:not(.hidden-nav) .opaque-overlay {
+		display: block;
+	}
 }

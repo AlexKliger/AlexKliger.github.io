@@ -13,17 +13,21 @@
   </head>
 
   <body>
-    <header style="position: fixed;" class="bg--primary box-shadow">
-      <div class="l-centered">
-          <nav>
-            <ul>
-              <li><a class="font-color--tertiary" href="#landing">Home</a></li>
-              <li><a class="font-color--tertiary" href="#portfolio">Porfolio</a></li>
-              <li><a class="font-color--tertiary" href="#about">About</a></li>
-              <li><a class="font-color--tertiary" href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+    <header style="position: fixed;" class="hidden-nav bg--primary box-shadow">
+      <div class="">
+        <div class="opaque-overlay toggle-nav-btn"></div>
+        <nav class="bg--primary">
+          <ul>
+            <li class="nav__link"><a class="font-color--tertiary" href="#landing">Home</a></li>
+            <li class="nav__link"><a class="font-color--tertiary" href="#portfolio">Porfolio</a></li>
+            <li class="nav__link"><a class="font-color--tertiary" href="#about">About</a></li>
+            <li class="nav__link"><a class="font-color--tertiary" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="expand-icon toggle-nav-btn font-size--large">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </header>
 
     <main class="bg--tertiary">
@@ -121,6 +125,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="js/scrollToAnchor.js" type="text/javascript"></script>
+    <script src="js/toggleNav.js" type="text/javascript"></script>
 
   </body>
 </html>
