@@ -121,7 +121,7 @@ input[type=submit] {
 	}
 
 	.project__img {
-		width: 40%;
+		width: 600px;
 	}
 
 	.project__content {
@@ -130,7 +130,7 @@ input[type=submit] {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 50%;
+		min-width: 275px;
 		padding: 1em 1em;
 	}
 
@@ -164,6 +164,21 @@ input[type=submit] {
 	}
 
 	header:not(.hidden-nav) .opaque-overlay {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.project__img {
+		width: 300px;
+	}
+
+	.project__content {
+		position: static;
+		transform: translate(2%, -10%);
+	}
+	
+	.project--align-right {
 		display: block;
 	}
 }
