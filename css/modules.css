@@ -57,14 +57,19 @@ nav {
 	clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%)
 }
 
+	.about__container {
+		display: flex;
+	}
+
 	.about__img {
-		border-radius: 50%;
-		max-width: 25%;
+		border-radius: 100%;
+		width: 300px;
 	}
 
 	.about__text {
 		text-align: justify;
 		align-self: center;
+		padding-left: 2rem;
 	}
 
 #contact {
@@ -186,5 +191,14 @@ input[type=submit] {
 	.hero__btn {
 		display: block;
 		margin-bottom: 0.5rem;
+	}
+
+	.about__container {
+		flex-direction: column;
+	}
+
+	.about__text {
+		padding-left: 0;
+		margin-top: 1.5rem;
 	}
 }
