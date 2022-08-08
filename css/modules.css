@@ -75,6 +75,7 @@ nav {
 .hero__btn {
 	padding: 0.5em 1em;
 	font-size: var(--font-size-medium);
+	width: fit-content;
 }
 
 .hero__text {
@@ -180,5 +181,10 @@ input[type=submit] {
 	
 	.project--align-right {
 		display: block;
+	}
+
+	.hero__btn {
+		display: block;
+		margin-bottom: 0.5rem;
 	}
 }
