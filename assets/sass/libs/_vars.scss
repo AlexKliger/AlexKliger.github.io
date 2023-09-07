@@ -1,13 +1,15 @@
 // Misc.
 	$misc: (
 		z-index-base:			10000,
-		max-wrapper-styles:		6
+		max-wrapper-styles:		6,
+		max-sidebar-links:     20
 	);
 
 // Duration.
 	$duration: (
 		menu:					0.35s,
-		transition:				0.2s
+		transition:				0.2s,
+		activation:				1s
 	);
 
 // Size.
@@ -25,7 +27,9 @@
 			large:				6.5em,
 			medium:				4.75em,
 			small:				2.5em
-		)
+		),
+		sidebar-width:			18em,
+		sidebar-height:			3.5em,  // when <= large is active
 	);
 
 // Font.
