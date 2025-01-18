@@ -27,6 +27,18 @@ class Particle {
   update(canvas: HTMLCanvasElement) {
     this.x += this.vx;
     this.y += this.vy;
+
+    if (this.x < 0) {
+      this.x = canvas.width;
+    } else if (this.x > canvas.width) {
+      this.x = 0;
+    }
+
+    if (this.y < 0) {
+      this.y = canvas.height;
+    } else if (this.y > canvas.height) {
+      this.y = 0;
+    }
   }
 }
 
