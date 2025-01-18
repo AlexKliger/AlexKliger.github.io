@@ -102,7 +102,7 @@ const ParticleEffect = ({ particleDensity = 0.0001 }: ParticleEffectProps) => {
     }, [particleDensity]);
 
     return (
-        <canvas ref={canvasRef} className="absolute w-full z-0"></canvas>
+        <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0"></canvas>
     );
 };
 
