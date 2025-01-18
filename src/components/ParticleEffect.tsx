@@ -1,25 +1,23 @@
 import { useEffect, useRef } from "react";
 
-const PARTICLE_COUNT = 100
-
 class Particle {
   x: number;
   y: number;
   vx: number;
   vy: number;
-  radius: number;
+  size: number;
 
   constructor(x = 0, y = 0, vx = 0, vy = 0, radius = 1) {
     this.x = x;
     this.y = y;
     this.vx = vx;
     this.vy = vy;
-    this.radius = radius
+    this.size = radius
   }
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.rect(this.x, this.y, this.size, this.size);
     ctx.fillStyle = 'white';
     ctx.fill();
   }
@@ -42,15 +40,16 @@ class Particle {
   }
 }
 
-function createParticles(canvas: HTMLCanvasElement): Array<Particle> {
+function createParticles(canvas: HTMLCanvasElement, particleDensity): Array<Particle> {
   const particles = [];
-  
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
+  const canvasArea = canvas.width * canvas.height;
+
+  for (let i = 0; i < canvasArea*particleDensity; i++) {
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
     const vx = (Math.random() < 0.5 ? -1 : 1) * 0.05;
     const vy = (Math.random() < 0.5 ? -1 : 1) * 0.05;
-    const size = Math.random() * 2 + 0.6;
+    const size = Math.random() * 5 + 0.6;
     particles.push(new Particle(x, y, vx, vy, size));
   }
 
@@ -68,7 +67,11 @@ function animateParticles(ctx: CanvasRenderingContext2D, particlesArray: Array<P
   requestAnimationFrame(() => animateParticles(ctx, particlesArray));
 }
 
-const ParticleEffect = () => {
+interface ParticleEffectProps {
+  particleDensity?: number;
+}
+
+const ParticleEffect = ({ particleDensity = 0.0001 }: ParticleEffectProps) => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
@@ -78,30 +81,28 @@ const ParticleEffect = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      let particlesArray = createParticles(canvas);
+      let particlesArray;
       
       // Resize canvas
       const handleResize = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight
-        particlesArray = createParticles(canvas);
+        particlesArray = createParticles(canvas, particleDensity);
         animateParticles(ctx, particlesArray);
       }
       window.addEventListener('resize', handleResize)
 
       // Create particles and begin animation
-      particlesArray = createParticles(canvas);
+      particlesArray = createParticles(canvas, particleDensity);
       animateParticles(ctx, particlesArray);
 
       return () => {
         window.removeEventListener('resize', handleResize)
       }
-    })
+    }, [particleDensity]);
 
     return (
-        <canvas ref={canvasRef} className="absolute w-full z-0">
-
-        </canvas>
+        <canvas ref={canvasRef} className="absolute w-full z-0"></canvas>
     );
 };
 
