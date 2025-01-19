@@ -44,4 +44,4 @@ const sidebarFooterItems: SidebarItem[] = [
   },
 ];
 
-export { sidebarContentItems, sidebarFooterItems };
+export { sidebarContentItems, sidebarFooterItems, type SidebarItem };
