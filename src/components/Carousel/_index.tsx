@@ -1,6 +1,10 @@
-import React from 'react';
-
-import { Card, CardContent } from "@/components/_core/card"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+ } from "@/components/_core/card"
 import {
   Carousel as CarouselCore,
   CarouselContent,
@@ -8,6 +12,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/_core/carousel"
+
+const items = [
+  {
+    title: "Sameen Consulting",
+    description: "A front-end website for Sameen Consulting, a technology integration and program management company.",
+    image: "src/assets/images/sameen_consulting.png",
+  },
+  {
+    title: "Zaniac STEM Enrichment",
+    description: "Zaniac is an education company that offers year-round Science, Technology, Engineering, Art & Math (STEAM) Programs and Camps for K-12th graders.",
+    image: "src/assets/images/zaniac.png",
+  },
+]
 
 interface CarouselProps {
   className?: string
@@ -23,12 +40,16 @@ const Carousel = ({ className }: CarouselProps ) => {
         className={ className }
       >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          {items.map(({ title, description, image }) => (
+            <CarouselItem key={title} className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
+                  <CardHeader>
+                    <CardTitle>{title}</CardTitle>
+                    <CardDescription>{description}</CardDescription>
+                  </CardHeader>
                   <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-3xl font-semibold">{index + 1}</span>
+                    <img className="rounded-lg" src={image} alt={title} />
                   </CardContent>
                 </Card>
               </div>
