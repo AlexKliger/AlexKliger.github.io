@@ -17,12 +17,12 @@ const items = [
   {
     title: "Sameen Consulting",
     description: "A front-end website for Sameen Consulting, a technology integration and program management company.",
-    image: "src/assets/images/sameen_consulting.png",
+    image: "public/assets/images/sameen_consulting.png",
   },
   {
     title: "Zaniac STEM Enrichment",
     description: "Zaniac is an education company that offers year-round Science, Technology, Engineering, Art & Math (STEAM) Programs and Camps for K-12th graders.",
-    image: "src/assets/images/zaniac.png",
+    image: "public/assets/images/zaniac.png",
   },
 ]
 
