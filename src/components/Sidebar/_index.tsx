@@ -1,5 +1,4 @@
 import React from 'react';
-import { Home, FolderGit2, CircleUserRound, Github, Linkedin } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -10,37 +9,10 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from '@/components/_core/sidebar';
-
-const sidebarContentItems = [
-  {
-    title: 'Home',
-    url: '#',
-    icon: Home
-  },
-  {
-    title: 'About',
-    url: '#',
-    icon: CircleUserRound
-  },
-  {
-    title: 'Projects',
-    url: '#',
-    icon: FolderGit2
-  },
-];
-
-const sidebarFooterItems = [
-  {
-    title: '',
-    url: '#',
-    icon: Github
-  },
-  {
-    title: '',
-    url: '#',
-    icon: Linkedin
-  },
-];
+import {
+  sidebarContentItems,
+  sidebarFooterItems
+} from './sidebarItems';
 
 const MainSidebar: React.FC = () => {
     return (
@@ -58,12 +30,12 @@ const MainSidebar: React.FC = () => {
         <SidebarContent>
           <SidebarGroup>
             <SidebarMenu>
-              {sidebarContentItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+              {sidebarContentItems.map(({title, url, icon: Icon}) => (
+                <SidebarMenuItem key={title}>
+                  <SidebarMenuButton tooltip={title} asChild>
+                    <a href={url}>
+                      <Icon />
+                      <span>{title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -74,12 +46,11 @@ const MainSidebar: React.FC = () => {
 
         <SidebarFooter>
           <SidebarMenu>
-            {sidebarFooterItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+            {sidebarFooterItems.map(({title, url, icon: Icon}) => (
+                <SidebarMenuItem key={title}>
+                  <SidebarMenuButton tooltip={title} asChild>
+                    <a href={url}>
+                      <Icon />
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
