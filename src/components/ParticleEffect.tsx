@@ -40,7 +40,7 @@ class Particle {
   }
 }
 
-function createParticles(canvas: HTMLCanvasElement, particleDensity): Array<Particle> {
+function createParticles(canvas: HTMLCanvasElement, particleDensity: number): Array<Particle> {
   const particles = [];
   const canvasArea = canvas.width * canvas.height;
 
@@ -56,15 +56,15 @@ function createParticles(canvas: HTMLCanvasElement, particleDensity): Array<Part
   return particles;
 }
 
-function animateParticles(ctx: CanvasRenderingContext2D, particlesArray: Array<Particle>) {
+function animateParticles(ctx: CanvasRenderingContext2D, particleArr: Array<Particle>) {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   
-  particlesArray.forEach(particle => {
+  particleArr.forEach(particle => {
     particle.draw(ctx);
     particle.update(ctx.canvas)
   })
 
-  requestAnimationFrame(() => animateParticles(ctx, particlesArray));
+  requestAnimationFrame(() => animateParticles(ctx, particleArr));
 }
 
 interface ParticleEffectProps {
@@ -76,25 +76,28 @@ const ParticleEffect = ({ particleDensity = 0.0001 }: ParticleEffectProps) => {
 
     useEffect(() => {
       const canvas = canvasRef.current;
+      if (!canvas) return;
+
       const ctx = canvas.getContext('2d');
+      if (!ctx) return;
 
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      let particlesArray;
+      let particleArr;
       
       // Resize canvas
       const handleResize = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight
-        particlesArray = createParticles(canvas, particleDensity);
-        animateParticles(ctx, particlesArray);
+        particleArr = createParticles(canvas, particleDensity);
+        animateParticles(ctx, particleArr);
       }
-      window.addEventListener('resize', handleResize)
+      window.addEventListener('resize', handleResize);
 
       // Create particles and begin animation
-      particlesArray = createParticles(canvas, particleDensity);
-      animateParticles(ctx, particlesArray);
+      particleArr = createParticles(canvas, particleDensity);
+      animateParticles(ctx, particleArr);
 
       return () => {
         window.removeEventListener('resize', handleResize)
