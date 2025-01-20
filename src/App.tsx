@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { SidebarProvider, SidebarTrigger } from "./components/_core/sidebar";
 import Carousel from "./components/Carousel/_index";
 import MainSidebar from "./components/Sidebar/_index";
@@ -10,6 +10,8 @@ function App() {
     const root = window.document.documentElement;
     root.classList.add('dark');
   })
+
+  const [visiblePageIndex, setVisiblePageIndex] = useState<number | null>(null);
 
   const page1Ref = useRef<HTMLDivElement>(null);
   const page2Ref = useRef<HTMLDivElement>(null);
@@ -25,17 +27,44 @@ function App() {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisiblePageIndex(parseInt(entry.target.getAttribute('data-index')!));
+          }
+        })
+      },
+      {
+        root: null, // Use viewport as the root
+        rootMargin: '0px',
+        threshold: 0.5,
+      }
+    )
+
+    pageRefs.forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    })
+
+    return () => {
+      pageRefs.forEach((ref) => {
+        if (ref.current) observer.unobserve(ref.current);
+      })  
+    }
+  });
+
   return (
     <SidebarProvider>
       <MainSidebar
         contentItems={sidebarContentItems}
         footerItems={sidebarFooterItems}
+        activeIndex={visiblePageIndex}
       />
       
       <main className="w-full z-99">
         <SidebarTrigger className="fixed top-0 z-50" />
 
-        <div ref={page1Ref} className="h-screen text-center flex px-14 relative">
+        <div data-index={0} ref={page1Ref} className="h-screen text-center flex px-14 relative">
           <ParticleEffect />
           <div className="self-center max-w-2xl mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
@@ -47,7 +76,7 @@ function App() {
           </div>
         </div>
         
-        <div ref={page2Ref} className="h-screen text-center flex px-14 relative">
+        <div data-index={1} ref={page2Ref} className="h-screen text-center flex px-14 relative">
           <ParticleEffect particleDensity={0.00004} />
           <div className="self-center max-w-lg mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
@@ -59,7 +88,7 @@ function App() {
           </div>
         </div>
 
-        <div ref={page3Ref} className="h-screen relative flex">
+        <div data-index={2} ref={page3Ref} className="h-screen relative flex">
           <ParticleEffect particleDensity={0.00001} />
           <div className="self-center w-full">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-center">

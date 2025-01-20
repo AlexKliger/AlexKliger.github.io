@@ -15,9 +15,14 @@ import {
 interface MainSidebarProps {
   contentItems?: SidebarItem[];
   footerItems?: SidebarItem[];
+  activeIndex?: number | null;
 }
 
-const MainSidebar = ({ contentItems=[], footerItems=[] }: MainSidebarProps) => {
+const MainSidebar = ({
+  contentItems = [],
+  footerItems = [],
+  activeIndex = null,
+}: MainSidebarProps) => {
     return (
       <Sidebar collapsible="icon" variant="floating">
         <SidebarHeader>
@@ -33,9 +38,13 @@ const MainSidebar = ({ contentItems=[], footerItems=[] }: MainSidebarProps) => {
         <SidebarContent>
           <SidebarGroup>
             <SidebarMenu>
-              {contentItems.map(({title, icon: Icon, onClick}) => (
+              {contentItems.map(({title, icon: Icon, onClick}, i) => (
                 <SidebarMenuItem key={title}>
-                  <SidebarMenuButton onClick={onClick} tooltip={title}>
+                  <SidebarMenuButton
+                    isActive={activeIndex === i ? true : false}
+                    onClick={onClick}
+                    tooltip={title}
+                  >
                       <Icon />
                       <span>{title}</span>
                   </SidebarMenuButton>
