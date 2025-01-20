@@ -17,7 +17,7 @@ const items = [
   {
     title: "Sameen Consulting",
     description: "A front-end website for Sameen Consulting, a technology integration and program management company.",
-    image: "/assets/images/sameen_consulting.png",
+    image: "/assets/images/sameen-consulting.png",
   },
   {
     title: "Zaniac STEM Enrichment",
