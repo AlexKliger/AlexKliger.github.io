@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Sidebar,
   SidebarContent,
@@ -10,11 +9,15 @@ import {
   SidebarMenuButton,
 } from '@/components/_core/sidebar';
 import {
-  sidebarContentItems,
-  sidebarFooterItems
+  SidebarItem
 } from './sidebarItems';
 
-const MainSidebar: React.FC = () => {
+interface MainSidebarProps {
+  contentItems?: SidebarItem[];
+  footerItems?: SidebarItem[];
+}
+
+const MainSidebar = ({ contentItems=[], footerItems=[] }: MainSidebarProps) => {
     return (
       <Sidebar collapsible="icon" variant="floating">
         <SidebarHeader>
@@ -30,13 +33,11 @@ const MainSidebar: React.FC = () => {
         <SidebarContent>
           <SidebarGroup>
             <SidebarMenu>
-              {sidebarContentItems.map(({title, url, icon: Icon}) => (
+              {contentItems.map(({title, icon: Icon, onClick}) => (
                 <SidebarMenuItem key={title}>
-                  <SidebarMenuButton tooltip={title} asChild>
-                    <a href={url}>
+                  <SidebarMenuButton onClick={onClick} tooltip={title}>
                       <Icon />
                       <span>{title}</span>
-                    </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -46,7 +47,7 @@ const MainSidebar: React.FC = () => {
 
         <SidebarFooter>
           <SidebarMenu>
-            {sidebarFooterItems.map(({title, url, icon: Icon}) => (
+            {footerItems.map(({title, url, icon: Icon}) => (
                 <SidebarMenuItem key={title}>
                   <SidebarMenuButton tooltip={title} asChild>
                     <a href={url}>
