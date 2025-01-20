@@ -9,24 +9,22 @@ import {
 
 interface SidebarItem {
   title: string;
-  url: string;
-  icon: ElementType
+  icon: ElementType;
+  url?: string;
+  onClick?: () => void;
 }
 
 const sidebarContentItems: SidebarItem[] = [
   {
     title: 'Home',
-    url: '#',
     icon: Home,
   },
   {
     title: 'About',
-    url: '#',
     icon: CircleUserRound,
   },
   {
     title: 'Projects',
-    url: '#',
     icon: FolderGit2,
   },
 ];
