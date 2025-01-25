@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react";
-
 class Particle {
   x: number;
   y: number;
@@ -7,12 +5,12 @@ class Particle {
   vy: number;
   size: number;
 
-  constructor(x = 0, y = 0, vx = 0, vy = 0, radius = 1) {
+  constructor(x = 0, y = 0, vx = 0, vy = 0, size = 1) {
     this.x = x;
     this.y = y;
     this.vx = vx;
     this.vy = vy;
-    this.size = radius
+    this.size = size
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -40,6 +38,23 @@ class Particle {
   }
 }
 
+class Edge {
+  p1: Particle;
+  p2: Particle;
+
+  constructor(p1: Particle, p2: Particle) {
+    this.p1 = p1;
+    this.p2 = p2;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.beginPath();
+    ctx.moveTo(this.p1.x, this.p1.y);
+    ctx.lineTo(this.p2.x, this.p2.y);
+    ctx.stroke();
+  }
+}
+
 function createParticles(canvas: HTMLCanvasElement, particleDensity: number): Array<Particle> {
   const particles = [];
   const canvasArea = canvas.width * canvas.height;
@@ -56,6 +71,10 @@ function createParticles(canvas: HTMLCanvasElement, particleDensity: number): Ar
   return particles;
 }
 
+function createMouseParticle(x: number, y: number) {
+  return new Particle(x, y, 0, 0, 5);
+}
+
 function animateParticles(ctx: CanvasRenderingContext2D, particleArr: Array<Particle>) {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   
@@ -66,47 +85,13 @@ function animateParticles(ctx: CanvasRenderingContext2D, particleArr: Array<Part
 
   requestAnimationFrame(() => animateParticles(ctx, particleArr));
 }
+  
+function animateMouseParticle(ctx: CanvasRenderingContext2D, particle: Particle, mousePos: {x: number, y: number}) {
+  particle.x = mousePos.x
+  particle.y = mousePos.y
+  particle.draw(ctx);
 
-interface ParticleEffectProps {
-  particleDensity?: number;
+  requestAnimationFrame(() => animateMouseParticle(ctx, particle, mousePos))
 }
 
-const ParticleEffect = ({ particleDensity = 0.0001 }: ParticleEffectProps) => {
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      let particleArr;
-      
-      // Resize canvas
-      const handleResize = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight
-        particleArr = createParticles(canvas, particleDensity);
-        animateParticles(ctx, particleArr);
-      }
-      window.addEventListener('resize', handleResize);
-
-      // Create particles and begin animation
-      particleArr = createParticles(canvas, particleDensity);
-      animateParticles(ctx, particleArr);
-
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }, [particleDensity]);
-
-    return (
-        <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0"></canvas>
-    );
-};
-
-export default ParticleEffect;
+export { Particle, Edge, createParticles, createMouseParticle, animateParticles, animateMouseParticle }
