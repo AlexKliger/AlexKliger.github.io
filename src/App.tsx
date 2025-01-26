@@ -36,14 +36,13 @@ function App() {
         activeIndex={activePageIndex}
       />
       
+      <ParticleEffect />
       <main className="w-full z-99">
         <SidebarTrigger className="fixed top-0 z-50" />
-
         <div
           ref={el => addPageRef(el)}
           className="h-screen text-center flex px-14 relative"
         >
-          <ParticleEffect />
           <div className="self-center max-w-2xl mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
               Hi, I'm Alex.
@@ -58,7 +57,6 @@ function App() {
           ref={el => addPageRef(el)}
           className="h-screen text-center flex px-14 relative"
         >
-          <ParticleEffect particleDensity={0.00004} />
           <div className="self-center max-w-lg mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
               About
@@ -73,7 +71,6 @@ function App() {
           ref={el => addPageRef(el)}
           className="h-screen relative flex"
         >
-          <ParticleEffect particleDensity={0.00001} />
           <div className="self-center mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
               Projects
