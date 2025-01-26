@@ -74,16 +74,13 @@ function App() {
           className="h-screen relative flex"
         >
           <ParticleEffect particleDensity={0.00001} />
-          <div className="self-center w-full">
+          <div className="self-center mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
               Projects
             </h1>
-            <div className="p-14 h-full">
-              <div className="self-center basis-full mx-auto">
-                <Carousel className="max-w-3xl" />
-              </div>
+            <div className="px-14 pt-8 basis-full">
+              <Carousel className="max-w-3xl" />
             </div>
-
           </div>
         </div>
       </main>
