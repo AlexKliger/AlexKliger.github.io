@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { SidebarProvider, SidebarTrigger } from "./components/_core/sidebar";
 import Carousel from "./components/Carousel/_index";
 import MainSidebar from "./components/Sidebar/_index";
-import ParticleEffect from "./components/ParticleEffect";
+import ParticleEffect from "./components/ParticleEffect/_index";
 import { sidebarContentItems, sidebarFooterItems } from "./components/Sidebar/sidebarItems";
 import useActivePageObserver from "./hooks/useActivePageObserver";
 
