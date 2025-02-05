@@ -76,7 +76,7 @@ function App() {
               Projects
             </h1>
             <div className="px-14 pt-8 basis-full">
-              <Carousel className="max-w-3xl" />
+              <Carousel className="max-w-5xl" />
             </div>
           </div>
         </div>

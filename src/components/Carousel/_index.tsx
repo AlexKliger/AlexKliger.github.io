@@ -16,12 +16,12 @@ import {
 const items = [
   {
     title: "Sameen Consulting",
-    description: "A front-end website for Sameen Consulting, a technology integration and program management company.",
+    description: "A front-end for Sameen Consulting, a technology integration and program management company.",
     image: "/assets/images/sameen-consulting.png",
   },
   {
     title: "Zaniac STEM Enrichment",
-    description: "Zaniac is an education company that offers year-round Science, Technology, Engineering, Art & Math (STEAM) Programs and Camps for K-12th graders.",
+    description: "A fullstack site for Zaniac, an education company that offers year-round Science, Technology, Engineering, Art & Math (STEAM) Programs and Camps for K-12th graders.",
     image: "/assets/images/zaniac.png",
   },
 ]
@@ -41,7 +41,7 @@ const Carousel = ({ className }: CarouselProps ) => {
       >
         <CarouselContent>
           {items.map(({ title, description, image }) => (
-            <CarouselItem key={title} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={title} className="basis-1/2">
               <div className="p-1">
                 <Card>
                   <CardHeader>
